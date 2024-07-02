@@ -3,12 +3,13 @@
 function display_staff_by_category( $atts ) {
     $atts = shortcode_atts( array(
         'category' => '',
+        'column' => '',
     ), $atts, 'staff_by_category' );
-
+    $column = intval( $atts['column'] );
     if ( empty( $atts['category'] ) ) {
         return 'No category specified.';
     }
-
+    
     $args = array(
         'post_type'      => 'staff',
         'posts_per_page' => -1,
@@ -33,7 +34,7 @@ function display_staff_by_category( $atts ) {
         $query->the_post();
 		$staff_tags = wp_get_post_terms( get_the_ID(), 'staff_tags' );
 		$image_url = wp_get_attachment_url( get_post_thumbnail_id() );
-        $output .= '<div class="lws-staff-box wp-block-column">';
+        $output .= '<div class="lws-staff-box wp-block-column column-'.$column.'">';
         $output .= '<a href="'. get_permalink() .'">';
 
         $output .= '<figure class="wp-block-image aligncenter size-full is-resized">';

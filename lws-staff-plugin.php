@@ -3,7 +3,7 @@
  * Plugin Name: LWS WpPlugin Staff
  * Plugin URI: https://github.com/mmecaroni/lws-wpplugin-staff
  * Description: Adds Staff CPT & Custom API endpoints for LWS Websites, Apps, Etc
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Mario Mecaroni
  * Author URI: http://www.liquidstudiogroup.com
  * License: MIT
@@ -16,7 +16,7 @@
 if (!defined('ABSPATH')) { exit; }
 
 /****** Constants for Plugin Environment */
-define( 'LWS_STAFF_VERSION', 'v0.0.4' );
+define( 'LWS_STAFF_VERSION', 'v0.0.5' );
 define( 'LWS_STAFF_ASSETS', plugin_dir_url( __FILE__ ) );
 define( 'LWS_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LWS_STAFF_ROOT_FILE', __FILE__ );
@@ -28,8 +28,8 @@ define( 'LWS_STAFF_URL', plugins_url( '', __FILE__ ) );
 
 /****** Load plugin assets css and js */
 function Lws_staff_enqueue_style_script() {   
-    wp_enqueue_style( 'lws_staff_css', LWS_STAFF_ASSETS . 'assets/css/lws-staff-style.css', '0.0.1' );
-    wp_enqueue_script( 'lws_satff_script', LWS_STAFF_ASSETS . 'assets/js/lws-js.js',array('jquery'), '0.0.1'  );
+    wp_enqueue_style( 'lws_staff_css', LWS_STAFF_ASSETS . 'assets/css/lws-staff-style.css', '1.0.0' );
+    wp_enqueue_script( 'lws_satff_script', LWS_STAFF_ASSETS . 'assets/js/lws-js.js',array('jquery'), '1.0.0'  );
 	//wp_localize_script( 'lws_menu_script', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'Lws_staff_enqueue_style_script' );
@@ -60,6 +60,9 @@ require_once(LWS_STAFF_DIR . 'lib/acf-field-group.php');
 
 // Staff category Shortcode functions
 require_once(LWS_STAFF_DIR . 'shortcode/custom-staff-shortcode.php');
+
+// Staff setting page
+include_once LWS_STAFF_DIR . 'includes/submenu/staff-setting-page.php';
 
 // Staff CPT api endpoints functions
 include_once LWS_STAFF_DIR . 'includes/api/cpt/api-read-staff.php';

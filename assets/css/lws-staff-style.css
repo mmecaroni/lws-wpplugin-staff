@@ -1,3 +1,4 @@
+.lws-staff-wrapper .aligncenter {   text-align: center; }
 .lws-staff-wrapper .lws-staff-box .is-layout-flex { flex-direction: column; }
 .lws-staff-wrapper { flex-wrap: wrap !important; }
 .lws-staff-box { flex-basis: auto !important; margin-bottom: 30px; }
@@ -10,3 +11,6 @@
 .lws-staff-wrapper .column-col3,.lws-staff-wrapper .column-3 { width: 33%; }
 .lws-staff-wrapper .column-col4,.lws-staff-wrapper .column-4 { width: 24%; }
 .lws-staff-wrapper .column-col5,.lws-staff-wrapper .column-5 { width: 18%; }
+.executive-manager .lws-staff-wrapper { flex-wrap: wrap !important; }
+.executive-manager .lws-staff-box { flex-basis: auto !important; margin-bottom: 30px; }
+.executive-manager .lws-staff-wrapper .lws-staff-box .staff-tags span {  font-size: 0.6em; }
